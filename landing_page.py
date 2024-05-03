@@ -249,7 +249,7 @@ def update_plot_and_table(day, apparatus): #, clickData):
 #%% Define the layout of your landing page with blue-ish background
 app.layout = dbc.Container( children=[
     html.Div(
-        html.Img(src='/assets/logo_cropped.png', height='260px'),  # Adjust the path and height of the image
+        html.Img(src='/assets/logo_cropped.png', height='200px'),  # Adjust the path and height of the image
         style={'textAlign': 'center', 'marginBottom': '20px'}
     ),
     
