@@ -23,13 +23,18 @@ import pandas as pd
 ###################################
 #%% Tab 1: Competition Overview ###
 ###################################
-file_path = "test_data/EliteCanada2024/srdatabase"
-# file_path = "test_data/EliteCanada2024/srdatabase"
-# Load the pickled database
+#%% Import Data 
+#use absolute path
+
+# Get the absolute path to the directory containing the main app file
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the absolute path to the file
+file_path = os.path.join(base_dir, "test_data/EliteCanada2024/srdatabase")
+
+
 with open(file_path, 'rb') as f:
     database = pickle.load(f)
-
-print("Database loaded successfully.")
 
 #for this page, I want to rename the names
 top_40 = [
