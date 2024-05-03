@@ -314,5 +314,6 @@ app.layout = dbc.Container( children=[
     ''', style={'textAlign': 'center', 'margin': '20px'})
 ])
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+#%% Comment out when pushing to pythonanywhere
+# if __name__ == '__main__':
+#     app.run_server(debug=True)
