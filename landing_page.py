@@ -247,6 +247,12 @@ def update_plot_and_table(day, apparatus): #, clickData):
 
 
 #%% Define the layout of your landing page with blue-ish background
+
+#add title
+# Set the title of the Dash app
+app.title = "STOI"
+
+
 app.layout = dbc.Container( children=[
     html.Div(
         html.Img(src='/assets/logo_cropped.png', height='200px'),  # Adjust the path and height of the image
@@ -271,10 +277,52 @@ app.layout = dbc.Container( children=[
             " and we will be in touch shortly!"
         ], style={'textAlign': 'center'}),
         
-        html.Div(
-            html.Button('Request Gymnastics Demo Access', id='button-example', n_clicks=0),
-            style={'textAlign': 'center', 'color': 'green', 'fontSize': '24px'} # Centering the button
-        ),#'background-color': 'green',
+        # html.Div(
+        #     html.Button('Request Gymnastics Demo Access', id='button-demo', n_clicks=0),
+        #     style={'textAlign': 'center', 'color': 'green', 'fontSize': '24px'} # Centering the button
+        # ),#'background-color': 'green',
+        # #link needed for button
+        # html.A("Link", id="link", href="#", target="_blank"),
+        
+        # html.A(
+        #     html.Button('Request Gymnastics Demo Access', id="button"),
+        #     href="https://forms.gle/Qh988ouBYF3xHTKLA",
+        #     target="_blank",
+        #     style={
+        #         'textDecoration': 'none',  # Remove underline
+        #         'cursor': 'pointer',  # Show pointer cursor on hover
+        #         'color': '#fff',  # Text color
+        #         'backgroundColor': '#007bff',  # Button background color
+        #         'border': '1px solid #007bff',  # Button border
+        #         'padding': '0.375rem 0.75rem',  # Button padding
+        #         'borderRadius': '0.25rem',  # Button border radius
+        #         'display': 'inline-block',  # Display as inline-block
+        #         'fontSize': '24px',  # Font size
+        #         'margin': 'auto',  # Center horizontally
+
+        #     }
+        # ),
+        
+        html.Div(style={'textAlign': 'center'}, children=[
+            html.A(
+                html.Button('Request Gymnastics Demo Access', id="button"),
+                href="https://forms.gle/Qh988ouBYF3xHTKLA",
+                target="_blank",
+                style={
+                    'textDecoration': 'none',  # Remove underline
+                    'cursor': 'pointer',  # Show pointer cursor on hover
+                    'color': '#fff',  # Text color
+                    'backgroundColor': '#007bff',  # Button background color
+                    'border': '1px solid #007bff',  # Button border
+                    'padding': '0.375rem 0.75rem',  # Button padding
+                    'borderRadius': '0.25rem',  # Button border radius
+                    'fontSize': '24px',  # Font size,
+                    
+                }
+            )
+        ]),
+        
+        
         html.Br(),  # Add line 
         # html.Div(style={'height': '20px'}),  # Adding space with CSS
         html.H3("Gymnastics Competition Dashboard Features", style={'textAlign': 'center','color':'black'}),
@@ -322,6 +370,16 @@ app.layout = dbc.Container( children=[
     ''', style={'textAlign': 'center', 'margin': '20px'})
 ])
 
+#              # Define the callback to update the href attribute of the link
+# @app.callback(
+#     Output("link", "href"),
+#     [Input("button-demo", "n_clicks")]
+# )
+# def update_link_href(n_clicks):
+#     if n_clicks:
+#         # Set the link you want to open here
+#         return "https://forms.gle/Qh988ouBYF3xHTKLA"
+             
 #%% Comment out when pushing to pythonanywhere
 # if __name__ == '__main__':
 #     app.run_server(debug=True)
