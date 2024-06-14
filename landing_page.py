@@ -152,6 +152,8 @@ def update_bubble_plot(day, apparatus):
 #I want to make the drop down selectors take up less width
 dropdown_style = {'width': '50%'}  # Adjust the width as needed
 
+
+'''
 # Define layout of the app
 overview_layout = html.Div([
     # html.H3('Competition Overview'),
@@ -243,7 +245,7 @@ def update_plot_and_table(day, apparatus): #, clickData):
     #     table = update_table(day, apparatus)
     
     return [fig] #, table
-
+'''
 
 
 #%% Define the layout of your landing page with blue-ish background
@@ -262,51 +264,30 @@ app.layout = dbc.Container( children=[
     html.H1(children='Bring Your Sports Data to Life!', className='display-3 text-center'),
     
     html.Div(children=[
-        html.H3("STOI Analytics is modernizing how amateur sports analyze and share data through custom interactive dashboards.", style={'textAlign': 'center'}),
+        html.H3("STOI Analytics is modernizing how amateur sports organizations analyze and share data through custom interactive dashboards.", style={'textAlign': 'center'}),
         # html.H5('Request a full Gymnastics Competition Dashboard demo by clicking on the "Request Demo Access" button', style={'textAlign': 'center'}),
         # html.H5("For inquiries for other sports, please email: <b>info@stoianalytics.com</b> and we will be in touch shortly!", style={'textAlign': 'center'}),
-        html.H5([
-            "Request a full Gymnastics Competition Dashboard demo by clicking on the ",
-            html.Span("Request Gymnastics Demo Access", style={'font-weight': 'bold', 'display': 'inline'}),
-            " button"
-        ], style={'textAlign': 'center'}),
         
-        html.H5([
-            "For inquiries related to services for other sports, please email: ",
+        html.H4([
+            "To inquire about services available for your sports organization, please email: ",
             html.Span("info@stoianalytics.com", style={'font-weight': 'bold', 'display': 'inline'}),
             " and we will be in touch shortly!"
         ], style={'textAlign': 'center'}),
+        html.Hr(style={'borderTop': '3px solid #bbb'}),
         
-        # html.Div(
-        #     html.Button('Request Gymnastics Demo Access', id='button-demo', n_clicks=0),
-        #     style={'textAlign': 'center', 'color': 'green', 'fontSize': '24px'} # Centering the button
-        # ),#'background-color': 'green',
-        # #link needed for button
-        # html.A("Link", id="link", href="#", target="_blank"),
         
-        # html.A(
-        #     html.Button('Request Gymnastics Demo Access', id="button"),
-        #     href="https://forms.gle/Qh988ouBYF3xHTKLA",
-        #     target="_blank",
-        #     style={
-        #         'textDecoration': 'none',  # Remove underline
-        #         'cursor': 'pointer',  # Show pointer cursor on hover
-        #         'color': '#fff',  # Text color
-        #         'backgroundColor': '#007bff',  # Button background color
-        #         'border': '1px solid #007bff',  # Button border
-        #         'padding': '0.375rem 0.75rem',  # Button padding
-        #         'borderRadius': '0.25rem',  # Button border radius
-        #         'display': 'inline-block',  # Display as inline-block
-        #         'fontSize': '24px',  # Font size
-        #         'margin': 'auto',  # Center horizontally
-
-        #     }
-        # ),
+        html.H4([
+            "Check out a Demo by clicking on the ",
+            html.Span("Gymnastics Demo Dashboard", style={'font-weight': 'bold', 'display': 'inline'}),
+            " button."
+        ], style={'textAlign': 'center'}),
+        
+        html.H5("Details about the major features found in the demo can be found below on this page.", style={'textAlign': 'center'}),
         
         html.Div(style={'textAlign': 'center'}, children=[
             html.A(
-                html.Button('Request Gymnastics Demo Access', id="button"),
-                href="https://forms.gle/Qh988ouBYF3xHTKLA",
+                html.Button('Gymnastics Demo Dashboard', id="button"),
+                href="https://gymcanmag.stoianalytics.com/",
                 target="_blank",
                 style={
                     'textDecoration': 'none',  # Remove underline
@@ -322,48 +303,75 @@ app.layout = dbc.Container( children=[
             )
         ]),
         
+        html.Br(),  # Add line 
+        html.H5("Please note that the demo is optimized for viewing on a computer or tablet.", style={'textAlign': 'center'}),
+        
+        
+        
         
         html.Br(),  # Add line 
+        
+        
+        #Demo details
+        # Horizontal line to separate sections
+        # html.Hr(),
+        # Customized horizontal line to separate sections
+        html.Hr(style={'borderTop': '3px solid #bbb'}),
+        
         # html.Div(style={'height': '20px'}),  # Adding space with CSS
-        html.H3("Gymnastics Competition Dashboard Features", style={'textAlign': 'center','color':'black'}),
+        html.H3("Gymnastics Demo Dashboard Features", style={'textAlign': 'center','color':'black'}),
+        html.P("(note: the demo uses publicly available competition data for Men's Artistic Gymnastics. The competition data cover the Canadian Championships (2023 & 2024) and Elite Canada (2024) for the following categories: Aspire, Open, Junior and Senior.)",style={'textAlign': 'center','color':'black'}),
+        
         html.H5("1. Competition Overview: ", style={'textAlign': 'center','color':'black'}),
-        html.P("Quickly View a Snapshot of the results for an entire category",style={'textAlign': 'center','color':'black'}),
+        html.P("Quickly View a Snapshot of the results for a given competition",style={'textAlign': 'center','color':'black'}),
         html.P("Easily identify trends, outliers, stand-out performances and overall depth of the program",style={'textAlign': 'center','color':'black'}),
         # overview_layout, #show plot
         html.H5("2. Individual Athlete Analysis: ", style={'textAlign': 'center','color':'black'}),
         html.P("Take a deep dive into individual athlete's scores across multiple days of competition",style={'textAlign': 'center','color':'black'}),
         html.P("Effortlessly identify and communicate overall athlete consistency and medal potential metrics",style={'textAlign': 'center','color':'black'}),
         html.H5("3. Team Scenarios: ", style={'textAlign': 'center','color':'black'}),
-        html.P("Explore different various team scenarios through easy-to-use filters",style={'textAlign': 'center','color':'black'}),
+        html.P("Explore various team scenarios through easy-to-use filters",style={'textAlign': 'center','color':'black'}),
         html.P("Make data-backed and transparent decisions for team selections to maximize your team's potential to achieve your objectives",style={'textAlign': 'center','color':'black'}),
         
+        #feedback
+        html.H5("Did you enjoy the demo? Please share your feedback:", style={'textAlign': 'center'}),
+        html.Div(style={'textAlign': 'center'}, children=[
+            html.A(
+                html.Button('Feedback', id="feedback_button"),
+                href="https://forms.gle/QApEPmcLvmoD5Pov5",
+                target="_blank",
+                style={
+                    'textDecoration': 'none',  # Remove underline
+                    'cursor': 'pointer',  # Show pointer cursor on hover
+                    'color': '#fff',  # Text color (white)
+                    'backgroundColor': '#28a745',  # Green background color
+                    'border': '1px solid #007bff',  # Button border
+                    'padding': '0.375rem 0.75rem',  # Button padding
+                    'borderRadius': '0.25rem',  # Button border radius
+                    'fontSize': '20px',  # Font size,
+                    
+                }
+            )
+        ]),
         
-        html.H4("Sample Interactive Plot",style={'textAlign': 'center'}),
-        html.H6("The plot below represents a fictious MAG competition where the Difficulty (D) score is plotted on the y-axis and Execution (E) score on the x-axis.",style={'textAlign': 'center'}),
-        html.H6("Each bubble represents an athletes score for that particular competition day and apparatus, with the bubble size and colour varying with total Score as shown in the Score legend bar on the right.",style={'textAlign': 'center'}),
-        html.H5("Filter Options",style={'textAlign': 'center'}),
-        html.H6("Filter the Competition Day to the results you want to view: Day 1, Day 2, Average or Best results.",style={'textAlign': 'center'}),
-        html.H6("Filter by Apparatus: Floor Exercise (FX), Pommel Horse (PH), Still Rings (SR), Vault (VT), Parallel Bars (PB), High Bar (HB), or All Around (AA).",style={'textAlign': 'center'}),
-        html.H5("Hover Options",style={'textAlign': 'center'}),
-        html.H6("Hover over the bubbles in the plot to get detailed Difficulty (D) Score, Execution (E) Score and Total Score for that Athlete.",style={'textAlign': 'center'}),
-        html.H6("Hover to the top right of the plot to access additional tools: download image, zoom, pan, box select, lasso select, zoom in, zoom out, autoscale and reset axes.",style={'textAlign': 'center'}),
-        html.P("Request access to the full demo to see all the ways STOI Analytics can bring your data to life!",style={'textAlign': 'center'}),
+        
+        html.Hr(style={'borderTop': '3px solid #bbb'}),
+        
+        
+        
+        # html.H4("Sample Interactive Plot",style={'textAlign': 'center'}),
+        # html.H6("The plot below represents a fictious MAG competition where the Difficulty (D) score is plotted on the y-axis and Execution (E) score on the x-axis.",style={'textAlign': 'center'}),
+        # html.H6("Each bubble represents an athlete's score for that particular competition day and apparatus, with the bubble size and colour varying with total Score as shown in the Score legend bar on the right.",style={'textAlign': 'center'}),
+        # html.H5("Filter Options",style={'textAlign': 'center'}),
+        # html.H6("Filter the Competition Day to the results you want to view: Day 1, Day 2, Average or Best results.",style={'textAlign': 'center'}),
+        # html.H6("Filter by Apparatus: Floor Exercise (FX), Pommel Horse (PH), Still Rings (SR), Vault (VT), Parallel Bars (PB), High Bar (HB), or All Around (AA).",style={'textAlign': 'center'}),
+        # html.H5("Hover Options",style={'textAlign': 'center'}),
+        # html.H6("Hover over the bubbles in the plot to get detailed Difficulty (D) Score, Execution (E) Score and Total Score for that Athlete.",style={'textAlign': 'center'}),
+        # html.H6("Hover to the top right of the plot to access additional tools: download image, zoom, pan, box select, lasso select, zoom in, zoom out, autoscale and reset axes.",style={'textAlign': 'center'}),
+        # html.P("Check out Gymnastics Dashboard Demo to see all the ways STOI Analytics can bring your data to life!",style={'textAlign': 'center'}),
     ], style={'margin': '20px'}),
 
-    # dcc.Graph(
-    #     id='example-graph',
-    #     figure={
-    #         'data': [
-    #             {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-    #             {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
-    #         ],
-    #         'layout': {
-    #             'title': 'Dash Data Visualization'
-    #         }
-    #     }
-    # ),
-    
-    overview_layout,
+    # overview_layout,
 
     html.Div(children='''
         for any additional inquiries, please email info@stoianalytics.com
