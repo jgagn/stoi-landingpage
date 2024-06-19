@@ -287,7 +287,7 @@ app.layout = dbc.Container( children=[
         html.Div(style={'textAlign': 'center'}, children=[
             html.A(
                 html.Button('Gymnastics Demo Dashboard', id="button"),
-                href="https://gymcanmag.stoianalytics.com/",
+                href="https://demo.stoianalytics.com/",
                 target="_blank",
                 style={
                     'textDecoration': 'none',  # Remove underline
